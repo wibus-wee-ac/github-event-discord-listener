@@ -3,7 +3,7 @@
  * @author: Wibus
  * @Date: 2022-11-01 17:51:31
  * @LastEditors: Wibus
- * @LastEditTime: 2022-11-01 19:11:35
+ * @LastEditTime: 2022-11-01 22:48:49
  * Coding With IU
  */
 
@@ -67,7 +67,7 @@ usernames.forEach(async function (username) {
       }
     }).filter((event) => event !== "").join("\n")
 
-  latest[username] = _Events[0].id;
+  latest[username] = _id[0];
   message = message + _Events;
   messages.push(message);
   fetch(webhook, {
