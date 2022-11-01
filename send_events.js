@@ -3,7 +3,7 @@
  * @author: Wibus
  * @Date: 2022-11-01 17:51:31
  * @LastEditors: Wibus
- * @LastEditTime: 2022-11-01 23:00:32
+ * @LastEditTime: 2022-11-02 07:23:52
  * Coding With IU
  */
 
@@ -73,7 +73,7 @@ usernames.forEach(async function (username) {
   //   console.error(_id); 
   //   throw new Error("_id[0] is undefined");
   // }
-  if (_id) {
+  if (_id && _id[0]) {
     latest[username] = _id[0];
     message = message + _Events;
     messages.push(message);
