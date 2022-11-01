@@ -3,7 +3,7 @@
  * @author: Wibus
  * @Date: 2022-11-01 17:51:31
  * @LastEditors: Wibus
- * @LastEditTime: 2022-11-01 18:35:44
+ * @LastEditTime: 2022-11-01 18:42:13
  * Coding With IU
  */
 
@@ -74,6 +74,7 @@ usernames.forEach(async function (username) {
   })
     .then((res) => {
       console.log(`${username} ok`)
+      console.log(latest, `${username} latest`);
       fs.writeFile('./latest.id.json', JSON.stringify(latest)).then(() => {
         console.log('latest.id.json updated');
       }).catch((err) => {
