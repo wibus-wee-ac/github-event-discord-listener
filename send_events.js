@@ -3,7 +3,7 @@
  * @author: Wibus
  * @Date: 2022-11-01 17:51:31
  * @LastEditors: Wibus
- * @LastEditTime: 2022-11-01 18:58:34
+ * @LastEditTime: 2022-11-01 19:09:36
  * Coding With IU
  */
 
@@ -38,34 +38,37 @@ console.log(latest);
 usernames.forEach(async function (username) {
   const url = `https://api.github.com/users/${username}/events/public`;
   const data = await fetch(url).then((res) => res.json());
-  const latestEvent = data[0];
-  if (latestEvent.id === originalEvents[username]) {
-    return;
-  }
-  latest[username] = data[0].id;
+  // const latestEvent = data[0];
   const events = data.slice(0, 5);
   let message = `**${username}** has new events:\n`;
-  let theEvents = events
+  let _id = [];
+  let _Events = events
     .map((event) => {
-      const { type, repo, payload } = event;
+      const { id, type, repo, payload } = event;
       const { action } = payload;
       const { name } = repo;
 
+      if (originalEvents[username] >= id) return;
+
       switch (type) {
         case "IssuesEvent":
-          return `🐛 [${name}] ${action} issue`;
+          _id.push(id);
+          return `🐛 [${name}] ${action} issue`
+
         case "PullRequestEvent":
-          return `📦 [${name}] ${action} pull request`;
+          _id.push(id);
+          return `📦 [${name}] ${action} pull request`
+
         case "WatchEvent":
+          _id.push(id);
           return `⭐️ [${name}] starred`;
         default:
           return "";
       }
-    }
-    )
-    .filter((event) => event !== "")
-    .join("\n");
-  message = message + theEvents;
+    }).filter((event) => event !== "").join("\n")
+
+  latest[username] = _Events[0].id;
+  message = message + _Events;
   messages.push(message);
   fetch(webhook, {
     method: "POST",
