@@ -29,7 +29,7 @@ jobs:
           commit_options: "--signoff"
           commit_user_name: "GitHub Actions"
           commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
-          file_pattern: "events.json"
+          file_pattern: "latest.id.json"
       - name: Push to GitHub
         uses: ad-m/github-push-action@master
         with:
