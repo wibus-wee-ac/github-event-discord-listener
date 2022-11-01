@@ -3,7 +3,7 @@
  * @author: Wibus
  * @Date: 2022-11-01 17:51:31
  * @LastEditors: Wibus
- * @LastEditTime: 2022-11-01 18:42:13
+ * @LastEditTime: 2022-11-01 18:58:34
  * Coding With IU
  */
 
@@ -25,11 +25,11 @@ const headers = {
   "Content-Type": "application/json",
 }
 
-const body = (content) => {
+const body = (content, username) => {
   return {
     content,
-    username: "GitHub",
-    avatar_url: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+    username: `[GitHub] ${username}` || "GitHub",
+    avatar_url: username ? `https://github.com/${username}.png` : "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
   }
 }
 
@@ -70,7 +70,7 @@ usernames.forEach(async function (username) {
   fetch(webhook, {
     method: "POST",
     headers,
-    body: JSON.stringify(body(message)),
+    body: JSON.stringify(body(message, username)),
   })
     .then((res) => {
       console.log(`${username} ok`)
