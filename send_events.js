@@ -3,7 +3,7 @@
  * @author: Wibus
  * @Date: 2022-11-01 17:51:31
  * @LastEditors: Wibus
- * @LastEditTime: 2022-11-01 19:09:36
+ * @LastEditTime: 2022-11-01 19:11:35
  * Coding With IU
  */
 
@@ -48,7 +48,7 @@ usernames.forEach(async function (username) {
       const { action } = payload;
       const { name } = repo;
 
-      if (originalEvents[username] >= id) return;
+      if (originalEvents[username] >= id) return "";
 
       switch (type) {
         case "IssuesEvent":
