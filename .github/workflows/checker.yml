@@ -25,7 +25,7 @@ jobs:
       - name: Push to GitHub
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "Update events.json"
+          commit_message: "chore: update latest id"
           commit_options: "--signoff"
           commit_user_name: "GitHub Actions"
           commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
