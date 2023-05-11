@@ -1,10 +1,10 @@
 name: "Event Checker"
 on:
-  push:
-    branches:
-      - main
-  schedule:
-    - cron: "*/15 * * * *"    # every 15 minutes
+#   push:
+#     branches:
+#       - main
+#   schedule:
+#     - cron: "*/15 * * * *"    # every 15 minutes
   workflow_dispatch:
 
 jobs:
