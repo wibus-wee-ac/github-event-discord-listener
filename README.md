@@ -2,7 +2,7 @@
 
 > Listen to personal activity on GitHub and send to Discord | 监听 GitHub 个人活动并发送至 Discord | 
 >
-> [呀！(o^^o) 使用 CronJob 同步 GitHub 用户的活动 -- 秉松博客](https://blog.iucky.cn/posts/programming/use-cronjob-to-listen-github-user-events)
+> [呀！(o^^o) 使用 CronJob 同步 GitHub 用户的活动 -- 秉松博客](https://blog.wibus.ren/posts/programming/use-cronjob-to-listen-github-user-events)
 
 ## 原理
 
